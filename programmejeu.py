@@ -1,24 +1,20 @@
-print("=== 🎯 Jeu : Devine le nombre ! ===")
-print("Je pense à un nombre entre 1 et 100...")
+# Simple algorithmic fish drawing in ASCII
 
-secret = 42  # tu peux changer la valeur ici
-essais = 0
+width = 20  # width of the fish body
+height = 7  # height of the fish body
 
-while True:
-    reponse = input("👉 Entre ton nombre : ")
+# Draw top fin
+for i in range(height//2):
+    spaces = ' ' * (height//2 - i)
+    stars = '*' * (2*i + 1)
+    print(spaces + stars + spaces)
 
-    # Vérifier si l’entrée est bien un nombre
-    if not reponse.isdigit():
-        print("⚠️ Entre un nombre valide !")
-        continue
+# Draw fish body
+for i in range(height):
+    print('*' + ' ' * width + '*')
 
-    reponse = int(reponse)
-    essais += 1
-
-    if reponse < secret:
-        print("⬆️ Trop petit ! Essaie encore.")
-    elif reponse > secret:
-        print("⬇️ Trop grand ! Essaie encore.")
-    else:
-        print(f"🎉 Bravo ! Tu as trouvé en {essais} essais.")
-        break
+# Draw tail
+for i in range(height//2, 0, -1):
+    spaces = ' ' * (height//2 - i)
+    stars = '*' * (2*i + 1)
+    print(spaces + stars + spaces)
