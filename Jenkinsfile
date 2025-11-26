@@ -13,5 +13,11 @@ pipeline {
                 echo 'Hello World'
             }
         }
+        stage('Run game') {
+            steps {
+                echo 'Running Python program'
+                sh 'python3 programmejeu.py'
+            }
+        }
     }
 }
